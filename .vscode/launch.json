@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-GlobaldailyApplication<globaldaily>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "com.sevillano.globaldaily.GlobaldailyApplication",
+            "projectName": "globaldaily",
+            "args": ""
+        }
+    ]
+}
