@@ -24,6 +24,24 @@
                 $('.navbar .dropdown').off('mouseover').off('mouseout');
             }
         }
+
+        async function myAjax() {
+            let result
+            try {
+              result = await $.ajax({
+                url: "http://localhost:8080/api/getAll",
+                type: 'GET'
+              })
+              return result
+            } catch (error) {
+              console.error(error)
+            }
+          }
+
+          myAjax().then((data) => {
+            console.info('Response:', data)
+          })
+
         toggleNavbarMethod();
         $(window).resize(toggleNavbarMethod);
     });

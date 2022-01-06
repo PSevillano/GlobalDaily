@@ -4,6 +4,9 @@ package com.sevillano.globaldaily.Controller;
 import java.util.List;
 
 import com.sevillano.globaldaily.Entity.News;
+import com.sevillano.globaldaily.Entity.NewsPaper;
+import com.sevillano.globaldaily.RSSSchedulers.RssScrapper;
+import com.sevillano.globaldaily.Service.NewsPaperRepository;
 import com.sevillano.globaldaily.Service.NewsRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,8 @@ public class NewsRestController {
     
     @Autowired
     public NewsRepository newsRepository;
+    @Autowired
+    public NewsPaperRepository newsPaperRepository;
 
     @GetMapping("/getAll")
     @ResponseBody
@@ -27,6 +32,27 @@ public class NewsRestController {
         return news;
         
     }
+
+    @GetMapping("/getAllNewsPaper")
+    @ResponseBody
+    public List<NewsPaper> getNewsPaper(){
+        List<NewsPaper> newsPaper = newsPaperRepository.getAllNewsLetters();
+          
+        return newsPaper;
+        
+    }
+
+    @GetMapping("/test")
+    @ResponseBody
+    public String test(){
+
+        RssScrapper rssExecute = new RssScrapper();
+        rssExecute.saveDataVanguardia();
+          
+        return "newsPaper";
+        
+    }
+  
     
     
 }
