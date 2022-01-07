@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.sevillano.globaldaily.Entity.News;
 import com.sevillano.globaldaily.Entity.NewsPaper;
-import com.sevillano.globaldaily.RSSSchedulers.RssScrapper;
 import com.sevillano.globaldaily.Service.NewsPaperRepository;
 import com.sevillano.globaldaily.Service.NewsRepository;
 
@@ -40,19 +39,27 @@ public class NewsRestController {
           
         return newsPaper;
         
-    }
+    } 
 
-    @GetMapping("/test")
+    @GetMapping("/getAllTecnoNews")
     @ResponseBody
-    public String test(){
+    public List<News> getTecnoNews(){
 
-        RssScrapper rssExecute = new RssScrapper();
-        rssExecute.saveDataVanguardia();
-          
-        return "newsPaper";
+        List<News> news = newsRepository.getAllTecnoNews();
+        
+        return news;
         
     }
-  
+
+    @GetMapping("/getAllSportsNews")
+    @ResponseBody
+    public List<News> getSportsNews(){
+
+        List<News> news = newsRepository.getAllSportNews();
+        
+        return news;
+        
+    }
     
     
 }

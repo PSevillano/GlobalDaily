@@ -15,7 +15,7 @@ import javax.persistence.Table;
 public class News {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private int id;
     @Column(name ="title")
     private String title;
@@ -29,13 +29,13 @@ public class News {
     private String dateNews;
     @Column(name ="origin")
     private String origin;
-    
-
+    @Column(name ="newsType")
+    private String newsType;
 
     public News() {
     }
 
-    public News(int id, String title, String completeText, String linkImg, String country, String dateNews, String origin) {
+    public News(int id, String title, String completeText, String linkImg, String country, String dateNews, String origin, String newsType) {
         this.id = id;
         this.title = title;
         this.completeText = completeText;
@@ -43,6 +43,15 @@ public class News {
         this.country = country;
         this.dateNews = dateNews;
         this.origin = origin;
+        this.newsType = newsType;
+    }
+
+    public String getNewsType() {
+        return this.newsType;
+    }
+
+    public void setNewsType(String newsType) {
+        this.newsType = newsType;
     }
 
     public int getId() {
